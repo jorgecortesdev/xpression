@@ -3,51 +3,21 @@
 namespace App\Test;
 
 use App\Calculator;
-
+use App\ShuntingYard;
+use App\SimpleTokenizer;
 use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {
-    /** @test */
-    function it_transform_a_two_operands_expression_to_postfix_notation()
+    protected $calculator;
+
+    public function setUp()
     {
-        $expression = "3 + 4";
+        parent::setUp();
 
-        $calculator = new Calculator($expression);
-
-        $this->assertEquals([3,4,'+'], $calculator->getRawOutput());
-    }
-
-    /** @test */
-    function it_transform_a_three_operands_expression_to_postfix_notation()
-    {
-        $expression = "3 + 4 + 5";
-
-        $calculator = new Calculator($expression);
-
-        $this->assertEquals([3,4,'+',5,'+'], $calculator->getRawOutput());
-    }
-
-    /** @test */
-    function it_transform_an_expression_with_multiple_operators_to_postfix_notation()
-    {
-        $expression = "2 - 2 * 3";
-
-        $calculator = new Calculator($expression);
-
-        $this->assertEquals([2,2,3,'*','-'], $calculator->getRawOutput());
-    }
-
-    /** @test */
-    function it_transform_an_expression_with_multiple_operators_and_parenthesis()
-    {
-        $expression = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3";
-
-        $calculator = new Calculator($expression);
-
-        $this->assertEquals(
-            [3,4,2,'*',1,5,'-',2,3,'^','^','/','+'],
-            $calculator->getRawOutput()
+        $this->calculator = new Calculator(
+            new SimpleTokenizer(),
+            new ShuntingYard()
         );
     }
 
