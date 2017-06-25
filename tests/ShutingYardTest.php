@@ -2,9 +2,9 @@
 
 namespace App\Tests;
 
-use App\ShuntingYard;
-use App\SimpleTokenizer;
 use PHPUnit\Framework\TestCase;
+use App\Algorithms\ShuntingYard;
+use App\Tokenizers\SimpleTokenizer;
 
 class ShutingYardTest extends TestCase
 {
@@ -67,6 +67,19 @@ class ShutingYardTest extends TestCase
 
         $this->assertEquals(
             [3,4,2,'*',1,5,'-',2,3,'^','^','/','+'],
+            $this->algorithm->apply($tokens)
+        );
+    }
+
+    /** @test */
+    function it_can_transform_an_infix_notation_with_multiple_parentheses_to_postfix_notation()
+    {
+        $expression = "1 + ( ( 2 + 3 ) * 4 + 5 ) * 6";
+
+        $tokens = $this->tokenizer->process($expression);
+
+        $this->assertEquals(
+            [1,2,3,'+',4,'*',5,'+',6,'*','+'],
             $this->algorithm->apply($tokens)
         );
     }
