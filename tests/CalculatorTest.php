@@ -3,9 +3,10 @@
 namespace App\Test;
 
 use App\Calculator;
-use App\ShuntingYard;
-use App\SimpleTokenizer;
+use App\Evaluators\Postfix;
 use PHPUnit\Framework\TestCase;
+use App\Algorithms\ShuntingYard;
+use App\Tokenizers\SimpleTokenizer;
 
 class CalculatorTest extends TestCase
 {
@@ -17,43 +18,30 @@ class CalculatorTest extends TestCase
 
         $this->calculator = new Calculator(
             new SimpleTokenizer(),
-            new ShuntingYard()
+            new ShuntingYard(),
+            new Postfix()
         );
     }
 
-    // /** @test */
-    // function it_can_sum_two_numbers()
-    // {
-    //     $expression = "1 + 2";
-    //     $calculator = new Calculator($expression);
-    //     $this->assertEquals(3, $calculator->evaluate());
-    // }
+    /** @test */
+    function it_can_sum_two_numbers()
+    {
+        $expression = "1 + 2";
+        $this->assertEquals(3, $this->calculator->read($expression)->evaluate());
+    }
 
-    // /** @test */
-    // function it_can_multiply_two_numbers()
-    // {
-    //     $expression = "1 * 2";
-    //     $calculator = new Calculator($expression);
-    //     $this->assertEquals(2, $calculator->evaluate());
-    // }
+    /** @test */
+    function it_can_multiply_two_numbers()
+    {
+        $expression = "1 * 2";
+        $this->assertEquals(2, $this->calculator->read($expression)->evaluate());
+    }
 
-    // /** @test */
-    // function it_can_parse_and_evaluate_a_string()
-    // {
-    //     $expression = "1 + 2 * 3";
+    /** @test */
+    function it_can_evaluate_an_expression_with_multiple_operators()
+    {
+        $expression = "1 + 2 * 3";
 
-    //     $calculator = new Calculator($expression);
-
-    //     $this->assertEquals(7, $calculator->evaluate());
-    // }
-
-    // /** @test */
-    // function it_can_print_the_expression_with_pharentesis()
-    // {
-    //     $expresion = "1 + 2 * 3";
-
-    //     $calculator = new Calculator($expresion);
-
-    //     $this->assertEquals("1 + (2 * 3)", $calculator);
-    // }
+        $this->assertEquals(7, $this->calculator->read($expression)->evaluate());
+    }
 }

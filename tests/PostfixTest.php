@@ -13,9 +13,9 @@ class PostfixTest extends TestCase
     {
         $tokens = [3,4,'+'];
 
-        $evaluator = new Postfix($tokens);
+        $evaluator = new Postfix();
 
-        $this->assertEquals(7, $evaluator->evaluate());
+        $this->assertEquals(7, $evaluator->tokens($tokens)->evaluate());
     }
 
     /** @test */
@@ -23,8 +23,28 @@ class PostfixTest extends TestCase
     {
         $tokens = [5,9,3,'+',4,'*',2,'*',7,'+','*'];
 
-        $evaluator = new Postfix($tokens);
+        $evaluator = new Postfix();
 
-        $this->assertEquals(515, $evaluator->evaluate());
+        $this->assertEquals(515, $evaluator->tokens($tokens)->evaluate());
+    }
+
+    /** @test */
+    function it_can_evaluate_a_postfix_notation_with_multiple_operators()
+    {
+        $tokens = [3,4,2,'*',1,5,'-',2,5,'^','^','/','+'];
+
+        $evaluator = new Postfix();
+
+        $this->assertEquals(3, $evaluator->tokens($tokens)->evaluate());
+    }
+
+    /** @test */
+    function it_can_evaluate_a_square_operation()
+    {
+        $tokens = [3,2,'^'];
+
+        $evaluator = new Postfix();
+
+        $this->assertEquals(9, $evaluator->tokens($tokens)->evaluate());
     }
 }

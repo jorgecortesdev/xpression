@@ -2,16 +2,23 @@
 
 namespace App;
 
-class Calculator implements Node
+use App\Algorithms\Algorithm;
+use App\Evaluators\Evaluator;
+use App\Tokenizers\Tokenizer;
+
+class Calculator
 {
     protected $tokenizer;
     protected $algorithm;
+    protected $evaluator;
+
     protected $tokens;
 
-    public function __construct(Tokenizer $tokenizer, Algorithm $algorithm)
+    public function __construct(Tokenizer $tokenizer, Algorithm $algorithm, Evaluator $evaluator)
     {
         $this->tokenizer = $tokenizer;
         $this->algorithm = $algorithm;
+        $this->evaluator = $evaluator;
     }
 
     public function read($expresion)
@@ -23,7 +30,9 @@ class Calculator implements Node
 
     public function evaluate()
     {
-        return $this->algorithm->apply($this->tokens);
+        return $this->evaluator->tokens(
+            $this->algorithm->apply($this->tokens)
+        )->evaluate();
     }
 
 }

@@ -8,12 +8,27 @@ use App\Collections\Stack;
 class Postfix implements Evaluator
 {
     protected $queue;
-    protected $stack;
 
-    public function __construct(array $tokens)
+    public $stack;
+
+    protected $nodes = [
+        '+' => 'App\Evaluators\Nodes\AdditionNode',
+        '/' => 'App\Evaluators\Nodes\DivisionNode',
+        '*' => 'App\Evaluators\Nodes\MultiplicationNode',
+        '^' => 'App\Evaluators\Nodes\ExponentialNode',
+        '-' => 'App\Evaluators\Nodes\SubstractionNode',
+    ];
+
+    public function __construct()
+    {
+        $this->stack = new Stack();
+    }
+
+    public function tokens(array $tokens)
     {
         $this->queue = new Queue($tokens);
-        $this->stack = new Stack();
+
+        return $this;
     }
 
     public function evaluate()
@@ -25,10 +40,9 @@ class Postfix implements Evaluator
                 continue;
             }
 
-            $rightOperand = $this->stack->pop();
-            $leftOperand = $this->stack->pop();
-            $expression = $leftOperand . $token . $rightOperand;
-            $value = eval("return ({$expression});");
+            $class = $this->nodes[$token];
+            $value = (new $class($this))->evaluate();
+
             $this->stack->push($value);
         }
         return $this->stack->pop();
