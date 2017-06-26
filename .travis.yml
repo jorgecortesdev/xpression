@@ -5,8 +5,16 @@ php:
   - 7.0
   - 7.1
 
-before_script:
-  - composer self-update
-  - composer install --prefer-source --no-interaction --dev
+sudo: false
 
-script: phpunit
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - travis_retry composer self-update
+
+install:
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+
+script: vendor/bin/phpunit
