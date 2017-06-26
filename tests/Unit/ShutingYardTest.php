@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Tests;
+namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use App\Algorithms\ShuntingYard;
-use App\Tokenizers\SimpleTokenizer;
+use Xorth\Xpression\Tokenizers\SimpleTokenizer;
+use Xorth\Xpression\Algorithms\ShuntingYard;
 
 class ShutingYardTest extends TestCase
 {
@@ -80,6 +80,19 @@ class ShutingYardTest extends TestCase
 
         $this->assertEquals(
             [1,2,3,'+',4,'*',5,'+',6,'*','+'],
+            $this->algorithm->apply($tokens)
+        );
+    }
+
+    /** @test */
+    function it_can_transform_an_expression_with_two_parentheses()
+    {
+        $expression = "( 1 + 2 ) * ( 1 + 3 )";
+
+        $tokens = $this->tokenizer->process($expression);
+
+        $this->assertEquals(
+            [1,2,'+',1,3,'+','*'],
             $this->algorithm->apply($tokens)
         );
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Tests;
+namespace Tests\Unit;
 
-use App\Evaluators\Postfix;
+use Xorth\Xpression\Evaluators\Postfix;
 use PHPUnit\Framework\TestCase;
 
 class PostfixTest extends TestCase
@@ -47,4 +47,5 @@ class PostfixTest extends TestCase
 
         $this->assertEquals(9, $evaluator->tokens($tokens)->evaluate());
     }
+
 }

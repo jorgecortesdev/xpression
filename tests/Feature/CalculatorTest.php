@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Test;
+namespace Test\Feature;
 
-use App\Calculator;
-use App\Evaluators\Postfix;
+use Xorth\Xpression\Calculator;
+use Xorth\Xpression\Evaluators\Postfix;
 use PHPUnit\Framework\TestCase;
-use App\Algorithms\ShuntingYard;
-use App\Tokenizers\SimpleTokenizer;
+use Xorth\Xpression\Algorithms\ShuntingYard;
+use Xorth\Xpression\Tokenizers\SimpleTokenizer;
 
 class CalculatorTest extends TestCase
 {
@@ -43,5 +43,13 @@ class CalculatorTest extends TestCase
         $expression = "1 + 2 * 3";
 
         $this->assertEquals(7, $this->calculator->read($expression)->evaluate());
+    }
+
+    /** @test */
+    public function it_can_evaluate_a_complex_expression()
+    {
+        $expression = "8 + ( 4 * 2 ) / ( 4 - 2 ) ^ 2";
+
+        $this->assertEquals(10, $this->calculator->read($expression)->evaluate());
     }
 }
