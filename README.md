@@ -1,5 +1,7 @@
 # Xpression
 
+<a href="https://travis-ci.org/xorth/xpression"><img src="https://travis-ci.org/xorth/xpression.svg?branch=master" alt="Build Status"></a>
+
 This is a just for fun implementation of the Shunting Yard Algorithm, it was only meant to be a research of the algorithm and experiments during the implementation.
 
 ## Installation
