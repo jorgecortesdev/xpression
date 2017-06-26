@@ -35,11 +35,11 @@ echo $calculator->read($expression)->evaluate();
 
  - The expression needs to be separated by spaces, this is due SimpleTokenizer class.
  - The supported operators are:
-     - +
+     - \+
      - /
-     - *
+     - \*
      - ^
-     - -
+     - \-
 
 ## Tests
 
