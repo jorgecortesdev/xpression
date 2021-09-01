@@ -9,7 +9,7 @@ This is a just for fun implementation of the Shunting Yard Algorithm, it was onl
 Just clone the repo:
 
 ```bash
-git clone https://github.com/xorth/xpression
+git clone https://github.com/jorgecortesdev/xpression
 ```
 
 
