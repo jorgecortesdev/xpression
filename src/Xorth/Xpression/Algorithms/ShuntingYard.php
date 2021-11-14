@@ -2,12 +2,12 @@
 
 namespace Xorth\Xpression\Algorithms;
 
-use Xorth\Xpression\Collections\Queue;
-use Xorth\Xpression\Collections\Stack;
+use Xorth\Xpression\Algorithms\Rules\IsLeftBrace;
 use Xorth\Xpression\Algorithms\Rules\IsNumeric;
 use Xorth\Xpression\Algorithms\Rules\IsOperator;
-use Xorth\Xpression\Algorithms\Rules\IsLeftBrace;
 use Xorth\Xpression\Algorithms\Rules\IsRightBrace;
+use Xorth\Xpression\Collections\Queue;
+use Xorth\Xpression\Collections\Stack;
 
 class ShuntingYard implements Algorithm
 {
@@ -16,14 +16,14 @@ class ShuntingYard implements Algorithm
      *
      * @var \Xorth\Xpression\Collections\Queue
      */
-    public $output;
+    public Queue $output;
 
     /**
-     * Used to stak the operators during the process.
+     * Used to stack the operators during the process.
      *
      * @var \Xorth\Xpression\Collections\Stack
      */
-    public $operators;
+    public Stack $operators;
 
     /**
      * Array of rules.
@@ -51,7 +51,7 @@ class ShuntingYard implements Algorithm
      * @param array $tokens
      * @return array
      */
-    public function apply(array $tokens)
+    public function apply(array $tokens): array
     {
         foreach ($tokens as $token) {
             foreach ($this->rules as $rule) {
@@ -61,7 +61,7 @@ class ShuntingYard implements Algorithm
             }
         }
 
-        while ( ! $this->operators->empty()) {
+        while (!$this->operators->empty()) {
             $this->output->enqueue($this->operators->pop());
         }
 

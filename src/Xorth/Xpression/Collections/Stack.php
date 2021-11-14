@@ -11,7 +11,7 @@ class Stack implements Countable
      *
      * @var array
      */
-    protected $items;
+    protected array $items;
 
     /**
      * Create a new Stack instance.
@@ -28,7 +28,7 @@ class Stack implements Countable
      *
      * @return boolean
      */
-    public function empty()
+    public function empty(): bool
     {
         return empty($this->items);
     }
@@ -39,7 +39,7 @@ class Stack implements Countable
      *
      * @return mixed
      */
-    public function peek()
+    public function peek(): mixed
     {
         return end($this->items);
     }
@@ -51,7 +51,7 @@ class Stack implements Countable
      *
      * @return mixed
      */
-    public function pop()
+    public function pop(): mixed
     {
         return array_pop($this->items);
     }
@@ -60,10 +60,10 @@ class Stack implements Countable
      * Add a new item in the stack, increasing
      * the size of the stack by one.
      *
-     * @param  mixed $item
+     * @param mixed $item
      * @return $this
      */
-    public function push($item)
+    public function push(mixed $item): static
     {
         $this->items[] = $item;
 
@@ -76,7 +76,7 @@ class Stack implements Countable
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->items;
     }
@@ -87,19 +87,9 @@ class Stack implements Countable
      *
      * @return integer
      */
-    public function count()
+    public function count(): int
     {
         return count($this->items);
-    }
-
-    /**
-     * Return a string representation of the Stack.
-     *
-     * @return string
-     */
-    public function toString()
-    {
-        return implode(' ', $this->items);
     }
 
     /**
@@ -110,5 +100,15 @@ class Stack implements Countable
     public function __toString()
     {
         return $this->toString();
+    }
+
+    /**
+     * Return a string representation of the Stack.
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        return implode(' ', $this->items);
     }
 }

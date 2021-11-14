@@ -13,8 +13,8 @@ class SimpleTokenizer implements Tokenizer
      * @param string $expression
      * @return array
      */
-    public function process($expression)
+    public function process(string $expression): array
     {
-        return $input = explode(' ', $expression);
+        return explode(' ', $expression);
     }
 }

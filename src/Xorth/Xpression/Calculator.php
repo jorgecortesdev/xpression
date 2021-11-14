@@ -11,37 +11,37 @@ class Calculator
     /**
      * Class needed to tokenize the expression.
      *
-     * @var \Xorth\Xpression\Tokenizers\Tokenizer
+     * @var Tokenizer
      */
-    protected $tokenizer;
+    protected Tokenizer $tokenizer;
 
     /**
      * The algorithm class to process the expression.
      *
-     * @var \Xorth\Xpression\Algorithms\Algorithm
+     * @var Algorithm
      */
-    protected $algorithm;
+    protected Algorithm $algorithm;
 
     /**
      * The evaluator class to grab the result.
      *
-     * @var \Xorth\Xpression\Evaluators\Evaluator
+     * @var Evaluator
      */
-    protected $evaluator;
+    protected Evaluator $evaluator;
 
     /**
      * The tokens to process.
      *
      * @var array
      */
-    protected $tokens;
+    protected array $tokens;
 
     /**
      * Make a new instance of calculator.
      *
-     * @param Tokenizer $tokenizers
-     * @param Algorithm $algorithms
-     * @param Evaluator $evaluators
+     * @param Tokenizer $tokenizer
+     * @param Algorithm $algorithm
+     * @param Evaluator $evaluator
      */
     public function __construct(Tokenizer $tokenizer, Algorithm $algorithm, Evaluator $evaluator)
     {
@@ -53,12 +53,12 @@ class Calculator
     /**
      * Read the expression to process.
      *
-     * @param string $expresion
+     * @param string $expression
      * @return $this
      */
-    public function read($expresion)
+    public function read(string $expression): static
     {
-        $this->tokens = $this->tokenizer->process($expresion);
+        $this->tokens = $this->tokenizer->process($expression);
 
         return $this;
     }
@@ -68,7 +68,7 @@ class Calculator
      *
      * @return integer|float
      */
-    public function evaluate()
+    public function evaluate(): float|int
     {
         return $this->evaluator->tokens(
             $this->algorithm->apply($this->tokens)

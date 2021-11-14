@@ -7,10 +7,10 @@ interface Evaluator
     /**
      * Set the tokens to process.
      *
-     * @param  array  $tokens
+     * @param array $tokens
      * @return $this
      */
-    public function tokens(array $tokens);
+    public function tokens(array $tokens): static;
 
     /**
      * Evaluate the setted tokens to reduce them
@@ -18,5 +18,5 @@ interface Evaluator
      *
      * @return integer|float
      */
-    public function evaluate();
+    public function evaluate(): float|int;
 }

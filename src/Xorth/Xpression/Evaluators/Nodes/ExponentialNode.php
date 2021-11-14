@@ -1,14 +1,15 @@
 <?php
+
 namespace Xorth\Xpression\Evaluators\Nodes;
 
 class ExponentialNode extends Node
 {
     /**
-     * Evaluate the exprssion.
+     * Evaluate the expression.
      *
      * @return integer|float
      */
-    public function evaluate()
+    public function evaluate(): float|int
     {
         $rightOperand = $this->evaluator->stack->pop();
         $leftOperand = $this->evaluator->stack->pop();

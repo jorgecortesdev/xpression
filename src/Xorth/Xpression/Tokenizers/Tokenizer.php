@@ -11,5 +11,5 @@ interface Tokenizer
      * @param string $expression
      * @return array
      */
-    public function process($expression);
+    public function process(string $expression): array;
 }

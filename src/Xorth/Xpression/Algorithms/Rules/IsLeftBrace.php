@@ -2,16 +2,18 @@
 
 namespace Xorth\Xpression\Algorithms\Rules;
 
+use Xorth\Xpression\Algorithms\ShuntingYard;
+
 class IsLeftBrace
 {
     /**
      * Check if the token is left brace.
      *
-     * @param  \Xorth\Xpression\Algorithms\ShuntingYard $algorithm
-     * @param  string $token
+     * @param ShuntingYard $algorithm
+     * @param string $token
      * @return boolean
      */
-    public function check($algorithm, $token)
+    public function check(ShuntingYard $algorithm, string $token): bool
     {
         if ($token !== '(') {
             return false;

@@ -1,5 +1,6 @@
 <?php
 
-function dd($data) {
+function dd($data)
+{
     die(var_dump($data));
 }

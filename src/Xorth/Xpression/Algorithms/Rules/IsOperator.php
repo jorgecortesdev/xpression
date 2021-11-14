@@ -2,6 +2,8 @@
 
 namespace Xorth\Xpression\Algorithms\Rules;
 
+use Xorth\Xpression\Algorithms\ShuntingYard;
+
 class IsOperator
 {
     /**
@@ -9,7 +11,7 @@ class IsOperator
      *
      * @var array
      */
-    protected $supportedOperators = [
+    protected array $supportedOperators = [
         '^' => ['value' => 4, 'associativity' => 'right'],
         '*' => ['value' => 3, 'associativity' => 'left'],
         '/' => ['value' => 3, 'associativity' => 'left'],
@@ -20,25 +22,25 @@ class IsOperator
     /**
      * Check if the token is a supported operator.
      *
-     * @param  \Xorth\Xpression\Algorithms\ShuntingYard $algorithm
-     * @param  string $token
+     * @param ShuntingYard $algorithm
+     * @param string $token
      * @return boolean
      */
-    public function check($algorithm, $token)
+    public function check(ShuntingYard $algorithm, string $token): bool
     {
-        if ( ! $this->isOperator($token)) {
+        if (!$this->isOperator($token)) {
             return false;
         }
         $topOperator = $algorithm->operators->peek();
 
-        while( ! $algorithm->operators->empty()
-                && $this->isOperator($topOperator)
-                && (
-                    ($this->isLeftOperator($token) && $this->hasGreaterOrEqualPrecedence($topOperator, $token))
-                    ||
-                    ($this->isRightOperator($token) && $this->hasGreaterPrecedence($topOperator, $token))
-                    )
-                ) {
+        while (!$algorithm->operators->empty()
+            && $this->isOperator($topOperator)
+            && (
+                ($this->isLeftOperator($token) && $this->hasGreaterOrEqualPrecedence($topOperator, $token))
+                ||
+                ($this->isRightOperator($token) && $this->hasGreaterPrecedence($topOperator, $token))
+            )
+        ) {
             $topOperator = $algorithm->operators->pop();
             $algorithm->output->enqueue($topOperator);
             $topOperator = $algorithm->operators->peek();
@@ -55,8 +57,20 @@ class IsOperator
      * @param string $token
      * @return boolean
      */
-    protected function isOperator($token) {
+    protected function isOperator(string $token): bool
+    {
         return in_array($token, array_keys($this->supportedOperators));
+    }
+
+    /**
+     * Is left operator.
+     *
+     * @param string $operator
+     * @return boolean
+     */
+    protected function isLeftOperator(string $operator): bool
+    {
+        return $this->supportedOperators[$operator]['associativity'] === 'left';
     }
 
     /**
@@ -66,21 +80,9 @@ class IsOperator
      * @param string $b
      * @return boolean
      */
-    protected function hasGreaterOrEqualPrecedence($a, $b)
+    protected function hasGreaterOrEqualPrecedence(string $a, string $b): bool
     {
         return $this->getPrecedence($a) >= $this->getPrecedence($b);
-    }
-
-    /**
-     * Has grater precedence.
-     *
-     * @param string $a
-     * @param string $b
-     * @return boolean
-     */
-    protected function hasGreaterPrecedence($a, $b)
-    {
-        return $this->getPrecedence($a) > $this->getPrecedence($b);
     }
 
     /**
@@ -89,7 +91,7 @@ class IsOperator
      * @param string $operator
      * @return integer
      */
-    protected function getPrecedence($operator)
+    protected function getPrecedence(string $operator): int
     {
         return $this->supportedOperators[$operator]['value'];
     }
@@ -100,19 +102,20 @@ class IsOperator
      * @param string $operator
      * @return boolean
      */
-    protected function isRightOperator($operator)
+    protected function isRightOperator(string $operator): bool
     {
         return $this->supportedOperators[$operator]['associativity'] === 'right';
     }
 
     /**
-     * Is left operator.
+     * Has grater precedence.
      *
-     * @param string $operator
+     * @param string $a
+     * @param string $b
      * @return boolean
      */
-    protected function isLeftOperator($operator)
+    protected function hasGreaterPrecedence(string $a, string $b): bool
     {
-        return $this->supportedOperators[$operator]['associativity'] === 'left';
+        return $this->getPrecedence($a) > $this->getPrecedence($b);
     }
 }

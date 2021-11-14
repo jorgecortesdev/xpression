@@ -2,8 +2,8 @@
 
 namespace Tests\Unit;
 
-use Xorth\Xpression\Evaluators\Postfix;
 use PHPUnit\Framework\TestCase;
+use Xorth\Xpression\Evaluators\Postfix;
 
 class PostfixTest extends TestCase
 {
@@ -11,7 +11,7 @@ class PostfixTest extends TestCase
     /** @test */
     function it_can_evaluate_a_simple_postfix_notation()
     {
-        $tokens = [3,4,'+'];
+        $tokens = [3, 4, '+'];
 
         $evaluator = new Postfix();
 
@@ -21,7 +21,7 @@ class PostfixTest extends TestCase
     /** @test */
     function it_can_evaluate_a_long_postfix_notation()
     {
-        $tokens = [5,9,3,'+',4,'*',2,'*',7,'+','*'];
+        $tokens = [5, 9, 3, '+', 4, '*', 2, '*', 7, '+', '*'];
 
         $evaluator = new Postfix();
 
@@ -31,7 +31,7 @@ class PostfixTest extends TestCase
     /** @test */
     function it_can_evaluate_a_postfix_notation_with_multiple_operators()
     {
-        $tokens = [3,4,2,'*',1,5,'-',2,5,'^','^','/','+'];
+        $tokens = [3, 4, 2, '*', 1, 5, '-', 2, 5, '^', '^', '/', '+'];
 
         $evaluator = new Postfix();
 
@@ -41,7 +41,7 @@ class PostfixTest extends TestCase
     /** @test */
     function it_can_evaluate_a_square_operation()
     {
-        $tokens = [3,2,'^'];
+        $tokens = [3, 2, '^'];
 
         $evaluator = new Postfix();
 

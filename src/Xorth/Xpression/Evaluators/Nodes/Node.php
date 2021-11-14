@@ -2,29 +2,31 @@
 
 namespace Xorth\Xpression\Evaluators\Nodes;
 
+use Xorth\Xpression\Evaluators\Evaluator;
+
 abstract class Node
 {
     /**
      * Evaluator class
      *
-     * @var \Xorth\Xpression\Evaluators\Evaluator
+     * @var Evaluator
      */
-    protected $evaluator;
+    protected Evaluator $evaluator;
 
     /**
      * Make a new instance of a Node.
      *
-     * @param \Xorth\Xpression\Evaluators\Evaluator $evaluator
+     * @param Evaluator $evaluator
      */
-    public function __construct($evaluator)
+    public function __construct(Evaluator $evaluator)
     {
         $this->evaluator = $evaluator;
     }
 
     /**
-     * Evaluate the exprssion.
+     * Evaluate the expression.
      *
      * @return integer|float
      */
-    abstract public function evaluate();
+    abstract public function evaluate(): float|int;
 }

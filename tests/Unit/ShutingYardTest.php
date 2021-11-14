@@ -3,15 +3,15 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Xorth\Xpression\Tokenizers\SimpleTokenizer;
 use Xorth\Xpression\Algorithms\ShuntingYard;
+use Xorth\Xpression\Tokenizers\SimpleTokenizer;
 
 class ShutingYardTest extends TestCase
 {
-    protected $algorithm;
-    protected $tokenizer;
+    protected ShuntingYard $algorithm;
+    protected SimpleTokenizer $tokenizer;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -27,7 +27,7 @@ class ShutingYardTest extends TestCase
         $tokens = $this->tokenizer->process($expression);
 
         $this->assertEquals(
-            [3,4,'+'],
+            [3, 4, '+'],
             $this->algorithm->apply($tokens)
         );
     }
@@ -40,7 +40,7 @@ class ShutingYardTest extends TestCase
         $tokens = $this->tokenizer->process($expression);
 
         $this->assertEquals(
-            [3,4,'+',5,'+'],
+            [3, 4, '+', 5, '+'],
             $this->algorithm->apply($tokens)
         );
     }
@@ -53,7 +53,7 @@ class ShutingYardTest extends TestCase
         $tokens = $this->tokenizer->process($expression);
 
         $this->assertEquals(
-            [2,2,3,'*','-'],
+            [2, 2, 3, '*', '-'],
             $this->algorithm->apply($tokens)
         );
     }
@@ -66,7 +66,7 @@ class ShutingYardTest extends TestCase
         $tokens = $this->tokenizer->process($expression);
 
         $this->assertEquals(
-            [3,4,2,'*',1,5,'-',2,3,'^','^','/','+'],
+            [3, 4, 2, '*', 1, 5, '-', 2, 3, '^', '^', '/', '+'],
             $this->algorithm->apply($tokens)
         );
     }
@@ -79,7 +79,7 @@ class ShutingYardTest extends TestCase
         $tokens = $this->tokenizer->process($expression);
 
         $this->assertEquals(
-            [1,2,3,'+',4,'*',5,'+',6,'*','+'],
+            [1, 2, 3, '+', 4, '*', 5, '+', 6, '*', '+'],
             $this->algorithm->apply($tokens)
         );
     }
@@ -92,7 +92,7 @@ class ShutingYardTest extends TestCase
         $tokens = $this->tokenizer->process($expression);
 
         $this->assertEquals(
-            [1,2,'+',1,3,'+','*'],
+            [1, 2, '+', 1, 3, '+', '*'],
             $this->algorithm->apply($tokens)
         );
     }

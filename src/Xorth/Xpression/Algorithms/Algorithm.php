@@ -12,5 +12,5 @@ interface Algorithm
      * @param array $tokens
      * @return array
      */
-    public function apply(array $tokens);
+    public function apply(array $tokens): array;
 }

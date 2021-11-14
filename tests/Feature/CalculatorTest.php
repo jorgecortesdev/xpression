@@ -1,18 +1,18 @@
 <?php
 
-namespace Test\Feature;
+namespace Tests\Feature;
 
-use Xorth\Xpression\Calculator;
-use Xorth\Xpression\Evaluators\Postfix;
 use PHPUnit\Framework\TestCase;
 use Xorth\Xpression\Algorithms\ShuntingYard;
+use Xorth\Xpression\Calculator;
+use Xorth\Xpression\Evaluators\Postfix;
 use Xorth\Xpression\Tokenizers\SimpleTokenizer;
 
 class CalculatorTest extends TestCase
 {
-    protected $calculator;
+    protected Calculator $calculator;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

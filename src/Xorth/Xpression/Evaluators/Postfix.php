@@ -8,19 +8,17 @@ use Xorth\Xpression\Collections\Stack;
 class Postfix implements Evaluator
 {
     /**
-     * A queue of tokens.
-     *
-     * @var \Xorth\Xpression\Collections\Queue
-     */
-    protected $queue;
-
-    /**
      * A stack to save the results.
      *
-     * @var \Xorth\Xpression\Collections\Stack
+     * @var Stack
      */
-    public $stack;
-
+    public Stack $stack;
+    /**
+     * A queue of tokens.
+     *
+     * @var Queue
+     */
+    protected Queue $queue;
     /**
      * Evaluators nodes.
      *
@@ -31,7 +29,7 @@ class Postfix implements Evaluator
         '/' => 'Xorth\Xpression\Evaluators\Nodes\DivisionNode',
         '*' => 'Xorth\Xpression\Evaluators\Nodes\MultiplicationNode',
         '^' => 'Xorth\Xpression\Evaluators\Nodes\ExponentialNode',
-        '-' => 'Xorth\Xpression\Evaluators\Nodes\SubstractionNode',
+        '-' => 'Xorth\Xpression\Evaluators\Nodes\SubtractionNode',
     ];
 
     /**
@@ -45,10 +43,10 @@ class Postfix implements Evaluator
     /**
      * Set the tokens to process.
      *
-     * @param  array  $tokens
+     * @param array $tokens
      * @return $this
      */
-    public function tokens(array $tokens)
+    public function tokens(array $tokens): static
     {
         $this->queue = new Queue($tokens);
 
@@ -61,9 +59,9 @@ class Postfix implements Evaluator
      *
      * @return integer|float
      */
-    public function evaluate()
+    public function evaluate(): float|int
     {
-        while ( ! $this->queue->empty()) {
+        while (!$this->queue->empty()) {
             $token = $this->queue->dequeue();
             if (is_numeric($token)) {
                 $this->stack->push($token);

@@ -11,7 +11,7 @@ class Queue implements Countable
      *
      * @var array
      */
-    protected $items;
+    protected array $items;
 
     /**
      * Create a new Queue instance.
@@ -28,7 +28,7 @@ class Queue implements Countable
      *
      * @return boolean
      */
-    public function empty()
+    public function empty(): bool
     {
         return empty($this->items);
     }
@@ -39,7 +39,7 @@ class Queue implements Countable
      *
      * @return mixed
      */
-    public function getFront()
+    public function getFront(): mixed
     {
         return current(reset($this->items));
     }
@@ -51,7 +51,7 @@ class Queue implements Countable
      *
      * @return mixed
      */
-    public function dequeue()
+    public function dequeue(): mixed
     {
         return array_shift($this->items);
     }
@@ -60,10 +60,10 @@ class Queue implements Countable
      * Add a new item in the queue, increasing
      * the size of the queue by one.
      *
-     * @param  mixed $item
+     * @param mixed $item
      * @return $this
      */
-    public function enqueue($item)
+    public function enqueue($item): static
     {
         array_push($this->items, $item);
 
@@ -76,7 +76,7 @@ class Queue implements Countable
      *
      * @return array
      */
-    public function toArray()
+    public function toArray(): array
     {
         return $this->items;
     }
@@ -87,19 +87,9 @@ class Queue implements Countable
      *
      * @return integer
      */
-    public function count()
+    public function count(): int
     {
         return count($this->items);
-    }
-
-    /**
-     * Return a string representation of the Stack.
-     *
-     * @return string
-     */
-    public function toString()
-    {
-        return implode(' ', $this->items);
     }
 
     /**
@@ -110,5 +100,15 @@ class Queue implements Countable
     public function __toString()
     {
         return $this->toString();
+    }
+
+    /**
+     * Return a string representation of the Stack.
+     *
+     * @return string
+     */
+    public function toString(): string
+    {
+        return implode(' ', $this->items);
     }
 }
