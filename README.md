@@ -48,6 +48,7 @@ echo $calculator->read($expression)->evaluate();
 To see what is currently tested you can use:
 
 ```bash
-phpunit --testdox
+composer install
+composer test
 ```
 

@@ -28,5 +28,8 @@
         "files": [
             "tests/Utilities/functions.php"
         ]
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit --testdox"
     }
 }
