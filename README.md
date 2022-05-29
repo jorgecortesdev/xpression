@@ -1,6 +1,6 @@
 # Xpression
 
-<a href="https://travis-ci.org/xorth/xpression"><img src="https://travis-ci.org/xorth/xpression.svg?branch=master" alt="Build Status"></a>
+[![Tests](https://github.com/jorgecortesdev/xpression/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/jorgecortesdev/xpression/actions/workflows/run-tests.yml)
 
 This is a just for fun implementation of the Shunting Yard Algorithm, it was only meant to be research of the algorithm and experiments during the implementation.
 
