@@ -2,11 +2,11 @@
 
 namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
 use JorgeCortesDev\Xpression\Algorithms\ShuntingYard;
 use JorgeCortesDev\Xpression\Calculator;
 use JorgeCortesDev\Xpression\Evaluators\Postfix;
 use JorgeCortesDev\Xpression\Tokenizers\SimpleTokenizer;
+use PHPUnit\Framework\TestCase;
 
 class CalculatorTest extends TestCase
 {
@@ -24,21 +24,21 @@ class CalculatorTest extends TestCase
     }
 
     /** @test */
-    function it_can_sum_two_numbers()
+    public function it_can_sum_two_numbers()
     {
         $expression = "1 + 2";
         $this->assertEquals(3, $this->calculator->read($expression)->evaluate());
     }
 
     /** @test */
-    function it_can_multiply_two_numbers()
+    public function it_can_multiply_two_numbers()
     {
         $expression = "1 * 2";
         $this->assertEquals(2, $this->calculator->read($expression)->evaluate());
     }
 
     /** @test */
-    function it_can_evaluate_an_expression_with_multiple_operators()
+    public function it_can_evaluate_an_expression_with_multiple_operators()
     {
         $expression = "1 + 2 * 3";
 

@@ -26,7 +26,7 @@ class Queue implements Countable
     /**
      * Verify if the Queue is empty.
      *
-     * @return boolean
+     * @return bool
      */
     public function empty(): bool
     {
@@ -85,7 +85,7 @@ class Queue implements Countable
      * Return the number of items inside
      * the queue.
      *
-     * @return integer
+     * @return int
      */
     public function count(): int
     {

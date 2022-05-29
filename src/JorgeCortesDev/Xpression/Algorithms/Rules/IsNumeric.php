@@ -11,15 +11,16 @@ class IsNumeric
      *
      * @param ShuntingYard $algorithm
      * @param string $token
-     * @return boolean
+     * @return bool
      */
     public function check(ShuntingYard $algorithm, string $token): bool
     {
-        if (!is_numeric($token)) {
+        if (! is_numeric($token)) {
             return false;
         }
 
         $algorithm->output->enqueue((int)$token);
+
         return true;
     }
 }

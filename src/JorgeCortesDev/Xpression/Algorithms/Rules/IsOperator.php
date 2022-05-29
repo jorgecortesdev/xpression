@@ -24,16 +24,16 @@ class IsOperator
      *
      * @param ShuntingYard $algorithm
      * @param string $token
-     * @return boolean
+     * @return bool
      */
     public function check(ShuntingYard $algorithm, string $token): bool
     {
-        if (!$this->isOperator($token)) {
+        if (! $this->isOperator($token)) {
             return false;
         }
         $topOperator = $algorithm->operators->peek();
 
-        while (!$algorithm->operators->empty()
+        while (! $algorithm->operators->empty()
             && $this->isOperator($topOperator)
             && (
                 ($this->isLeftOperator($token) && $this->hasGreaterOrEqualPrecedence($topOperator, $token))
@@ -55,7 +55,7 @@ class IsOperator
      * Is the token operator.
      *
      * @param string $token
-     * @return boolean
+     * @return bool
      */
     protected function isOperator(string $token): bool
     {
@@ -66,7 +66,7 @@ class IsOperator
      * Is left operator.
      *
      * @param string $operator
-     * @return boolean
+     * @return bool
      */
     protected function isLeftOperator(string $operator): bool
     {
@@ -78,7 +78,7 @@ class IsOperator
      *
      * @param string $a
      * @param string $b
-     * @return boolean
+     * @return bool
      */
     protected function hasGreaterOrEqualPrecedence(string $a, string $b): bool
     {
@@ -89,7 +89,7 @@ class IsOperator
      * Return the precedence of the operator.
      *
      * @param string $operator
-     * @return integer
+     * @return int
      */
     protected function getPrecedence(string $operator): int
     {
@@ -100,7 +100,7 @@ class IsOperator
      * Is right operator.
      *
      * @param string $operator
-     * @return boolean
+     * @return bool
      */
     protected function isRightOperator(string $operator): bool
     {
@@ -112,7 +112,7 @@ class IsOperator
      *
      * @param string $a
      * @param string $b
-     * @return boolean
+     * @return bool
      */
     protected function hasGreaterPrecedence(string $a, string $b): bool
     {

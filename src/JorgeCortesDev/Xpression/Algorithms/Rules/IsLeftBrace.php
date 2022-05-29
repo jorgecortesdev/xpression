@@ -11,7 +11,7 @@ class IsLeftBrace
      *
      * @param ShuntingYard $algorithm
      * @param string $token
-     * @return boolean
+     * @return bool
      */
     public function check(ShuntingYard $algorithm, string $token): bool
     {
@@ -20,7 +20,7 @@ class IsLeftBrace
         }
 
         $algorithm->operators->push($token);
-        return true;
 
+        return true;
     }
 }

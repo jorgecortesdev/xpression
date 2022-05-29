@@ -26,7 +26,7 @@ class Stack implements Countable
     /**
      * Verify if the Stack is empty.
      *
-     * @return boolean
+     * @return bool
      */
     public function empty(): bool
     {
@@ -85,7 +85,7 @@ class Stack implements Countable
      * Return the number of items inside
      * the stack.
      *
-     * @return integer
+     * @return int
      */
     public function count(): int
     {

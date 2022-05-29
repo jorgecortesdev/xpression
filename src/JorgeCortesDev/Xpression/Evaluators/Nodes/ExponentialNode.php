@@ -7,7 +7,7 @@ class ExponentialNode extends Node
     /**
      * Evaluate the expression.
      *
-     * @return integer|float
+     * @return int|float
      */
     public function evaluate(): float|int
     {

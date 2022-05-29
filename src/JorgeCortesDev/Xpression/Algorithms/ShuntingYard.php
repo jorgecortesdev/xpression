@@ -32,7 +32,7 @@ class ShuntingYard implements Algorithm
      */
     protected $rules;
 
-    function __construct()
+    public function __construct()
     {
         $this->output = new Queue();
         $this->operators = new Stack();
@@ -61,7 +61,7 @@ class ShuntingYard implements Algorithm
             }
         }
 
-        while (!$this->operators->empty()) {
+        while (! $this->operators->empty()) {
             $this->output->enqueue($this->operators->pop());
         }
 

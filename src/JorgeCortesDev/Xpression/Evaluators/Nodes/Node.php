@@ -26,7 +26,7 @@ abstract class Node
     /**
      * Evaluate the expression.
      *
-     * @return integer|float
+     * @return int|float
      */
     abstract public function evaluate(): float|int;
 }

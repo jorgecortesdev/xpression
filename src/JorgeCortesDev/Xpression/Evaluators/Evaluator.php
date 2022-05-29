@@ -16,7 +16,7 @@ interface Evaluator
      * Evaluate the setted tokens to reduce them
      * to a number.
      *
-     * @return integer|float
+     * @return int|float
      */
     public function evaluate(): float|int;
 }

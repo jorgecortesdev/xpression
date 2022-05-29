@@ -66,7 +66,7 @@ class Calculator
     /**
      * Evaluate the expression and return the result.
      *
-     * @return integer|float
+     * @return int|float
      */
     public function evaluate(): float|int
     {

@@ -2,14 +2,13 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use JorgeCortesDev\Xpression\Evaluators\Postfix;
+use PHPUnit\Framework\TestCase;
 
 class PostfixTest extends TestCase
 {
-
     /** @test */
-    function it_can_evaluate_a_simple_postfix_notation()
+    public function it_can_evaluate_a_simple_postfix_notation()
     {
         $tokens = [3, 4, '+'];
 
@@ -19,7 +18,7 @@ class PostfixTest extends TestCase
     }
 
     /** @test */
-    function it_can_evaluate_a_long_postfix_notation()
+    public function it_can_evaluate_a_long_postfix_notation()
     {
         $tokens = [5, 9, 3, '+', 4, '*', 2, '*', 7, '+', '*'];
 
@@ -29,7 +28,7 @@ class PostfixTest extends TestCase
     }
 
     /** @test */
-    function it_can_evaluate_a_postfix_notation_with_multiple_operators()
+    public function it_can_evaluate_a_postfix_notation_with_multiple_operators()
     {
         $tokens = [3, 4, 2, '*', 1, 5, '-', 2, 5, '^', '^', '/', '+'];
 
@@ -39,7 +38,7 @@ class PostfixTest extends TestCase
     }
 
     /** @test */
-    function it_can_evaluate_a_square_operation()
+    public function it_can_evaluate_a_square_operation()
     {
         $tokens = [3, 2, '^'];
 
@@ -47,5 +46,4 @@ class PostfixTest extends TestCase
 
         $this->assertEquals(9, $evaluator->tokens($tokens)->evaluate());
     }
-
 }

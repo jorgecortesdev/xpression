@@ -57,14 +57,15 @@ class Postfix implements Evaluator
      * Evaluate the setted tokens to reduce them
      * to a number.
      *
-     * @return integer|float
+     * @return int|float
      */
     public function evaluate(): float|int
     {
-        while (!$this->queue->empty()) {
+        while (! $this->queue->empty()) {
             $token = $this->queue->dequeue();
             if (is_numeric($token)) {
                 $this->stack->push($token);
+
                 continue;
             }
 
@@ -73,6 +74,7 @@ class Postfix implements Evaluator
 
             $this->stack->push($value);
         }
+
         return $this->stack->pop();
     }
 }

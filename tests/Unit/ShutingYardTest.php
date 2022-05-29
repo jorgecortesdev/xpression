@@ -2,9 +2,9 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
 use JorgeCortesDev\Xpression\Algorithms\ShuntingYard;
 use JorgeCortesDev\Xpression\Tokenizers\SimpleTokenizer;
+use PHPUnit\Framework\TestCase;
 
 class ShutingYardTest extends TestCase
 {
@@ -15,12 +15,12 @@ class ShutingYardTest extends TestCase
     {
         parent::setUp();
 
-        $this->algorithm = new ShuntingYard;
-        $this->tokenizer = new SimpleTokenizer;
+        $this->algorithm = new ShuntingYard();
+        $this->tokenizer = new SimpleTokenizer();
     }
 
     /** @test */
-    function it_can_transform_an_infix_notation_with_two_operands_to_postfix_notation()
+    public function it_can_transform_an_infix_notation_with_two_operands_to_postfix_notation()
     {
         $expression = "3 + 4";
 
@@ -33,7 +33,7 @@ class ShutingYardTest extends TestCase
     }
 
     /** @test */
-    function it_can_transform_an_infix_notation_with_three_operands_to_postfix_notation()
+    public function it_can_transform_an_infix_notation_with_three_operands_to_postfix_notation()
     {
         $expression = "3 + 4 + 5";
 
@@ -46,7 +46,7 @@ class ShutingYardTest extends TestCase
     }
 
     /** @test */
-    function it_can_transform_an_infix_notation_with_different_operators_to_postfix_notation()
+    public function it_can_transform_an_infix_notation_with_different_operators_to_postfix_notation()
     {
         $expression = "2 - 2 * 3";
 
@@ -59,7 +59,7 @@ class ShutingYardTest extends TestCase
     }
 
     /** @test */
-    function it_can_transform_a_long_infix_notation_with_parentheses_to_postfix_notation()
+    public function it_can_transform_a_long_infix_notation_with_parentheses_to_postfix_notation()
     {
         $expression = "3 + 4 * 2 / ( 1 - 5 ) ^ 2 ^ 3";
 
@@ -72,7 +72,7 @@ class ShutingYardTest extends TestCase
     }
 
     /** @test */
-    function it_can_transform_an_infix_notation_with_multiple_parentheses_to_postfix_notation()
+    public function it_can_transform_an_infix_notation_with_multiple_parentheses_to_postfix_notation()
     {
         $expression = "1 + ( ( 2 + 3 ) * 4 + 5 ) * 6";
 
@@ -85,7 +85,7 @@ class ShutingYardTest extends TestCase
     }
 
     /** @test */
-    function it_can_transform_an_expression_with_two_parentheses()
+    public function it_can_transform_an_expression_with_two_parentheses()
     {
         $expression = "( 1 + 2 ) * ( 1 + 3 )";
 
