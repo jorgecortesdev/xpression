@@ -5,3 +5,5 @@ Thumbs.db
 .php_cs.cache
 .idea
 .phpunit.result.cache
+.php_cs
+.php-cs-fixer.cache
