@@ -1,8 +1,8 @@
 <?php
 
-namespace Xorth\Xpression\Evaluators\Nodes;
+namespace JorgeCortesDev\Xpression\Evaluators\Nodes;
 
-use Xorth\Xpression\Evaluators\Evaluator;
+use JorgeCortesDev\Xpression\Evaluators\Evaluator;
 
 abstract class Node
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Xorth\Xpression\Collections;
+namespace JorgeCortesDev\Xpression\Collections;
 
 use Countable;
 

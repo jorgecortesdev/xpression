@@ -1,9 +1,9 @@
 <?php
 
-namespace Xorth\Xpression\Evaluators;
+namespace JorgeCortesDev\Xpression\Evaluators;
 
-use Xorth\Xpression\Collections\Queue;
-use Xorth\Xpression\Collections\Stack;
+use JorgeCortesDev\Xpression\Collections\Queue;
+use JorgeCortesDev\Xpression\Collections\Stack;
 
 class Postfix implements Evaluator
 {
@@ -25,11 +25,11 @@ class Postfix implements Evaluator
      * @var array
      */
     protected $nodes = [
-        '+' => 'Xorth\Xpression\Evaluators\Nodes\AdditionNode',
-        '/' => 'Xorth\Xpression\Evaluators\Nodes\DivisionNode',
-        '*' => 'Xorth\Xpression\Evaluators\Nodes\MultiplicationNode',
-        '^' => 'Xorth\Xpression\Evaluators\Nodes\ExponentialNode',
-        '-' => 'Xorth\Xpression\Evaluators\Nodes\SubtractionNode',
+        '+' => 'JorgeCortesDev\Xpression\Evaluators\Nodes\AdditionNode',
+        '/' => 'JorgeCortesDev\Xpression\Evaluators\Nodes\DivisionNode',
+        '*' => 'JorgeCortesDev\Xpression\Evaluators\Nodes\MultiplicationNode',
+        '^' => 'JorgeCortesDev\Xpression\Evaluators\Nodes\ExponentialNode',
+        '-' => 'JorgeCortesDev\Xpression\Evaluators\Nodes\SubtractionNode',
     ];
 
     /**

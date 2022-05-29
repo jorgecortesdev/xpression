@@ -1,10 +1,10 @@
 <?php
 
-namespace Xorth\Xpression;
+namespace JorgeCortesDev\Xpression;
 
-use Xorth\Xpression\Algorithms\Algorithm;
-use Xorth\Xpression\Evaluators\Evaluator;
-use Xorth\Xpression\Tokenizers\Tokenizer;
+use JorgeCortesDev\Xpression\Algorithms\Algorithm;
+use JorgeCortesDev\Xpression\Evaluators\Evaluator;
+use JorgeCortesDev\Xpression\Tokenizers\Tokenizer;
 
 class Calculator
 {

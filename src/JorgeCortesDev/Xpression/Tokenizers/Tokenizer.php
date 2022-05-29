@@ -1,6 +1,6 @@
 <?php
 
-namespace Xorth\Xpression\Tokenizers;
+namespace JorgeCortesDev\Xpression\Tokenizers;
 
 interface Tokenizer
 {

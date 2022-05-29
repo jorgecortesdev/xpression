@@ -1,8 +1,8 @@
 <?php
 
-namespace Xorth\Xpression\Evaluators\Nodes;
+namespace JorgeCortesDev\Xpression\Evaluators\Nodes;
 
-class ExponentialNode extends Node
+class MultiplicationNode extends Node
 {
     /**
      * Evaluate the expression.
@@ -13,7 +13,6 @@ class ExponentialNode extends Node
     {
         $rightOperand = $this->evaluator->stack->pop();
         $leftOperand = $this->evaluator->stack->pop();
-
-        return $leftOperand ** $rightOperand;
+        return $leftOperand * $rightOperand;
     }
 }

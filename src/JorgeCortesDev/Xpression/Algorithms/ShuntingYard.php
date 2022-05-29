@@ -1,27 +1,27 @@
 <?php
 
-namespace Xorth\Xpression\Algorithms;
+namespace JorgeCortesDev\Xpression\Algorithms;
 
-use Xorth\Xpression\Algorithms\Rules\IsLeftBrace;
-use Xorth\Xpression\Algorithms\Rules\IsNumeric;
-use Xorth\Xpression\Algorithms\Rules\IsOperator;
-use Xorth\Xpression\Algorithms\Rules\IsRightBrace;
-use Xorth\Xpression\Collections\Queue;
-use Xorth\Xpression\Collections\Stack;
+use JorgeCortesDev\Xpression\Algorithms\Rules\IsLeftBrace;
+use JorgeCortesDev\Xpression\Algorithms\Rules\IsNumeric;
+use JorgeCortesDev\Xpression\Algorithms\Rules\IsOperator;
+use JorgeCortesDev\Xpression\Algorithms\Rules\IsRightBrace;
+use JorgeCortesDev\Xpression\Collections\Queue;
+use JorgeCortesDev\Xpression\Collections\Stack;
 
 class ShuntingYard implements Algorithm
 {
     /**
      * The tokens ordered for be processed.
      *
-     * @var \Xorth\Xpression\Collections\Queue
+     * @var \JorgeCortesDev\Xpression\Collections\Queue
      */
     public Queue $output;
 
     /**
      * Used to stack the operators during the process.
      *
-     * @var \Xorth\Xpression\Collections\Stack
+     * @var \JorgeCortesDev\Xpression\Collections\Stack
      */
     public Stack $operators;
 

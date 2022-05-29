@@ -1,6 +1,6 @@
 <?php
 
-namespace Xorth\Xpression\Evaluators;
+namespace JorgeCortesDev\Xpression\Evaluators;
 
 interface Evaluator
 {

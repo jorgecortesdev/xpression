@@ -1,8 +1,8 @@
 <?php
 
-namespace Xorth\Xpression\Algorithms\Rules;
+namespace JorgeCortesDev\Xpression\Algorithms\Rules;
 
-use Xorth\Xpression\Algorithms\ShuntingYard;
+use JorgeCortesDev\Xpression\Algorithms\ShuntingYard;
 
 class IsLeftBrace
 {

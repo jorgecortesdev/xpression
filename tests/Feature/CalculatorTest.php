@@ -3,10 +3,10 @@
 namespace Tests\Feature;
 
 use PHPUnit\Framework\TestCase;
-use Xorth\Xpression\Algorithms\ShuntingYard;
-use Xorth\Xpression\Calculator;
-use Xorth\Xpression\Evaluators\Postfix;
-use Xorth\Xpression\Tokenizers\SimpleTokenizer;
+use JorgeCortesDev\Xpression\Algorithms\ShuntingYard;
+use JorgeCortesDev\Xpression\Calculator;
+use JorgeCortesDev\Xpression\Evaluators\Postfix;
+use JorgeCortesDev\Xpression\Tokenizers\SimpleTokenizer;
 
 class CalculatorTest extends TestCase
 {

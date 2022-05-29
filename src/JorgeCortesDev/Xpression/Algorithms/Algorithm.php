@@ -1,6 +1,6 @@
 <?php
 
-namespace Xorth\Xpression\Algorithms;
+namespace JorgeCortesDev\Xpression\Algorithms;
 
 interface Algorithm
 {

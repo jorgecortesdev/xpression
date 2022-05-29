@@ -2,7 +2,7 @@
 
 <a href="https://travis-ci.org/xorth/xpression"><img src="https://travis-ci.org/xorth/xpression.svg?branch=master" alt="Build Status"></a>
 
-This is a just for fun implementation of the Shunting Yard Algorithm, it was only meant to be a research of the algorithm and experiments during the implementation.
+This is a just for fun implementation of the Shunting Yard Algorithm, it was only meant to be research of the algorithm and experiments during the implementation.
 
 ## Installation
 
@@ -15,7 +15,7 @@ git clone https://github.com/jorgecortesdev/xpression
 
 ## Usage
 
-It include a controller class called Calculator that can be used as:
+It includes a controller class called Calculator that can be used as:
 
 ```php
 $expression = "1 + 2 * 3";

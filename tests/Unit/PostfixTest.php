@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Xorth\Xpression\Evaluators\Postfix;
+use JorgeCortesDev\Xpression\Evaluators\Postfix;
 
 class PostfixTest extends TestCase
 {

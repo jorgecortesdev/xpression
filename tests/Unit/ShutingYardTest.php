@@ -3,8 +3,8 @@
 namespace Tests\Unit;
 
 use PHPUnit\Framework\TestCase;
-use Xorth\Xpression\Algorithms\ShuntingYard;
-use Xorth\Xpression\Tokenizers\SimpleTokenizer;
+use JorgeCortesDev\Xpression\Algorithms\ShuntingYard;
+use JorgeCortesDev\Xpression\Tokenizers\SimpleTokenizer;
 
 class ShutingYardTest extends TestCase
 {
